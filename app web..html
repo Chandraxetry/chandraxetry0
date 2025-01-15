@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .feed {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video video {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .video-title {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .sign-up-form,
+        .sign-in-form {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #575757;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>YouC</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Sign Up Form -->
+        <div id="signup" class="sign-up-form">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="signup-phone" placeholder="Phone Number" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="signin" class="sign-in-form" style="display: none;">
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <input type="text" id="signin-phone-email" placeholder="Phone Number / Email" required>
+                <input type="password" id="signin-password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Video Upload Form (Visible after sign-in) -->
+        <div id="video-upload-form" style="display: none;">
+            <h2>Upload Video</h2>
+            <form id="upload-form">
+                <input type="file" id="video-file" accept="video/*" required>
+                <button type="submit">Upload Video</button>
+            </form>
+        </div>
+<img csr="http://localhost:2435//storage/emulated/0/DCIM/Camera/IMG_20250110_112927.jpg">
+        
+<!-- Video Feed -->
+        <div id="feed" class="feed" style="display: none;">
+            <h2>Feed</h2>
+            <div class="video">
+                <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-title">Video 1</div>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-title">Video 2</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Follow Us:</p>
+        <a href="https://www.facebook.com/chandraxetryofficial?mibextid=ZbWKwL">Facebook</a>
+        <a href="https://www.tiktok.com/@chandraxetry0?_t=8ksriBaKBXN&_r=1">TikTok</a>
+        <a href="https://www.youtube.com/@chandraxetry">YouTube</a>
+        <a href="https://www.instagram.com/chandraxetry0?igsh=OGQ5ZDc2ODk2ZA==">Instagram</a>
+        <a href="https://x.com/ChandraXetry?s=09">Twitter</a>
+        <p>Contact Us:</p>
+        <p>Phone: +9779702380235 | Email: imchandraofficial@gmail.com</p>
+    </div>
+
+    <script>
+        // Simple sign-up logic (just showing/hiding forms for now)
+        const signupForm = document.getElementById('signup-form');
+        const signinForm = document.getElementById('signin-form');
+        const videoUploadForm = document.getElementById('video-upload-form');
+        const feed = document.getElementById('feed');
+
+        signupForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Sign-up successful. Please sign in.");
+            document.getElementById('signup').style.display = 'none';
+            document.getElementById('signin').style.display = 'block';
+        });
+
+        signinForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Sign-in successful.");
+            document.getElementById('signin').style.display = 'none';
+            videoUploadForm.style.display = 'block';
+            feed.style.display = 'block';
+        });
+
+        // Handle video upload (just a simple alert for now)
+        const uploadForm = document.getElementById('upload-form');
+        uploadForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Video uploaded successfully!");
+        });
+    </script>
+
+</body>
+
+</html>
